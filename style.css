@@ -1,1 +1,41 @@
 /* CSS page */
+html {
+  background-color: orange;
+  font-family: "Bowlby One SC", cursive;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+}
+
+#site {
+  overflow-x: hidden;
+}
+
+.canvas {
+  background-color: orange;
+  font-family: "Bowlby One SC", cursive;
+}
+
+header {
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 4px 4px orangered;
+}
+
+.button {
+  background-color: orangered;
+  font-family: "Bowlby One SC", cursive;
+  font-size: 30px;
+  border: none;
+  color: white;
+  padding: 25px 50px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.qds {
+  font-size: 25px;
+}
