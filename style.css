@@ -5,9 +5,10 @@ html {
 }
 
 footer {
-  position: absolute;
   bottom: 0;
   font-size: 20px;
+  text-align: center;
+  margin-top: 200px;
 }
 
 #site {
