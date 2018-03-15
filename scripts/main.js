@@ -47,5 +47,9 @@ function submitAnswers(){
   }
   let score = (correct/10)*100;
   console.log(score);
-  document.getElementById('content').innerHTML = "Your score is " + score + "%!";
+  document.getElementById('content').innerHTML = "Your score is " + score + "%!" + `<br/> <br/> <p> <button type="button" onclick="restart()">Try Another!</button> </p>`;
+}
+
+function restart(){
+  location.reload();
 }
