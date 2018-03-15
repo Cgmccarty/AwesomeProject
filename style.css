@@ -35,10 +35,14 @@ header {
   padding: 25px 50px;
   text-decoration: none;
   display: inline-block;
+  top: 50%;
+  margin-top: 200px;
+  margin-bottom: 30px;
 }
 
 .qds {
   font-size: 25px;
+  text-align: center;
 }
 
 .question {
@@ -47,4 +51,12 @@ header {
 
 .answers {
   font-size: 18px;
+}
+
+#estart {
+  text-align: center;
+}
+
+#content {
+  text-size: 30px;
 }

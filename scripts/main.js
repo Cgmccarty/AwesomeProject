@@ -1,5 +1,5 @@
 /* Javascript Page */
-document.getElementById('estart').addEventListener('click', getData);
+document.getElementById('start').addEventListener('click', getData);
 
 dataFile = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
 
@@ -47,4 +47,5 @@ function submitAnswers(){
   }
   let score = (correct/10)*100;
   console.log(score);
+  document.getElementById('content').innerHTML = "Your score is " + score + "%!";
 }
