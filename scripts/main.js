@@ -12,10 +12,10 @@ function createQuestion(question){
   ];
   let answerbuttons = answers.map(function(answer){
     if (answer.correct === true){
-      return `<p class="answers"> <input class="correct" name="answer" type="radio">${answer.text}</input> </p>
+      return `<p class="answers"> <input class="correct" name="${question.question}" type="radio">${answer.text}</input> </p>
       `
     }
-    return `<p class="answers"> <input class="incorrect" name="answer" type="radio">${answer.text}</input> </p>`
+    return `<p class="answers"> <input class="incorrect" name="${question.question}" type="radio">${answer.text}</input> </p>`
   })
     let template = ` <p class="question"> ${question.question} </p> <br/> ${answerbuttons.join(' ')}`;
     return template;
@@ -30,6 +30,21 @@ function getData(){
       console.log(data);
       let answerhtml = data.results.map(createQuestion);
       let template = answerhtml.join(`<br/> <br/>`);
+      template += `<button type="button" id="submit">Submit</button>`
       document.getElementById('content').innerHTML = template;
+      console.log(data);
+      document.getElementById('submit').addEventListener('click', submitAnswers)
     })
+}
+
+function submitAnswers(){
+  let answers = document.querySelectorAll(".answers input");
+  let correct = 0;
+  for (var i= 0; i < answers.length; i++) {
+    if (answers[i].className === "correct" && answers[i].checked) {
+      correct++;
+    }
+  }
+  let score = (correct/10)*100;
+  console.log(score);
 }
