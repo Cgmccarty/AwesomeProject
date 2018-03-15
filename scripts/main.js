@@ -1,7 +1,7 @@
 /* Javascript Page */
 document.getElementById('start').addEventListener('click', getData);
 
-dataFile = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
+dataFile = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
 
 function createQuestion(question){
   let answers = [
@@ -10,12 +10,13 @@ function createQuestion(question){
     {text: question.incorrect_answers[1], correct: false},
     {text: question.incorrect_answers[2], correct: false}
   ];
-  let answerbuttons = answers.map(function(answer){
+  var randomAnswers = shuffle(answers);
+  let answerbuttons = randomAnswers.map(function(answer){
     if (answer.correct === true){
-      return `<p class="answers"> <input class="correct" name="${question.question}" type="radio">${answer.text}</input> </p>
+      return `<p class="options"> <input class="correct" name="${question.question}" type="radio">${answer.text}</input> </p>
       `
     }
-    return `<p class="answers"> <input class="incorrect" name="${question.question}" type="radio">${answer.text}</input> </p>`
+    return `<p class="options"> <input class="incorrect" name="${question.question}" type="radio">${answer.text}</input> </p>`
   })
     let template = ` <p class="question"> ${question.question} </p> <br/> ${answerbuttons.join(' ')}`;
     return template;
@@ -38,18 +39,32 @@ function getData(){
 }
 
 function submitAnswers(){
-  let answers = document.querySelectorAll(".answers input");
+  let guesses = document.querySelectorAll(".options input");
   let correct = 0;
-  for (var i= 0; i < answers.length; i++) {
-    if (answers[i].className === "correct" && answers[i].checked) {
+  for (var i= 0; i < guesses.length; i++) {
+    if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
     }
   }
   let score = (correct/10)*100;
   console.log(score);
-  document.getElementById('content').innerHTML = "Your score is " + score + "%!" + `<br/> <br/> <p> <button type="button" onclick="restart()">Try Another!</button> </p>`;
+  document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
+  + ` <br/> <br/> <p> Your score is ${score}%! <br/> <p> <button type="button" onclick="getData()">Try Another!</button> </p> </p>
+  <br/> <p> <button type ="button" onclick="restart()">Home</button> </p>`;
 }
 
 function restart(){
   location.reload();
+}
+
+function shuffle(answers){
+  var index = answers.length, temporaryValue, randomIndex;
+  while (0 !== index){
+    randomIndex = Math.floor(Math.random() * index);
+    index -= 1;
+    temporaryValue = answers[index];
+    answers[index] = answers[randomIndex];
+    answers[randomIndex] = temporaryValue;
+  }
+  return answers;
 }
