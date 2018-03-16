@@ -41,7 +41,7 @@ function getData(){
 function submitAnswers(){
   let guesses = document.querySelectorAll(".options input");
   let correct = 0;
-  for (var i= 0; i < guesses.length; i++) {
+  for (var i= 0; i < guesses.length; i++){
     if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
     }
@@ -49,7 +49,8 @@ function submitAnswers(){
   let score = (correct/10)*100;
   console.log(score);
   document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
-  + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">Try Another!</button> </p> </p> <p> <button type ="button" class="button" onclick="restart()">Home</button> </p>`;
+  + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">
+  Try Another!</button> </p> </p> <p> <button type ="button" class="button" onclick="restart()">Home</button> </p>`;
 }
 
 function restart(){
