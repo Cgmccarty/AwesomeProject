@@ -31,7 +31,7 @@ function getData(){
       console.log(data);
       let answerhtml = data.results.map(createQuestion);
       let template = answerhtml.join(`<br/> <br/>`);
-      template += `<button type="button" id="submit">Submit</button>`
+      template += `<button type="button" class="button" id="submit">Submit</button>`
       document.getElementById('content').innerHTML = template;
       console.log(data);
       document.getElementById('submit').addEventListener('click', submitAnswers)
@@ -49,8 +49,7 @@ function submitAnswers(){
   let score = (correct/10)*100;
   console.log(score);
   document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
-  + ` <br/> <br/> <p> Your score is ${score}%! <br/> <p> <button type="button" onclick="getData()">Try Another!</button> </p> </p>
-  <br/> <p> <button type ="button" onclick="restart()">Home</button> </p>`;
+  + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">Try Another!</button> </p> </p> <p> <button type ="button" class="button" onclick="restart()">Home</button> </p>`;
 }
 
 function restart(){

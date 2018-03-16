@@ -2,14 +2,18 @@
 html {
   background-color: orange;
   font-family: "Bowlby One SC", cursive;
+  min-height: 100%;
+  position: relative;
 }
 
 footer {
-  bottom: 0;
   font-size: 20px;
   text-align: center;
-  margin-top: 300px;
   margin-bottom: 25px;
+  margin-top: 200px;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 #site {
@@ -37,8 +41,9 @@ header {
   text-decoration: none;
   display: inline-block;
   top: 50%;
-  margin-top: 200px;
-  margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
 }
 
 .qds {
