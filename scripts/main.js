@@ -53,7 +53,7 @@ function getData(){
 function submitAnswers(){
   let guesses = document.querySelectorAll(".options input");
   let correct = 0;
-  let amount = document.getElementById('amount').value;
+  let amount = document.getElementById("amount").value;
   for (var i= 0; i < guesses.length; i++){
     if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
