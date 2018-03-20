@@ -53,12 +53,13 @@ function getData(){
 function submitAnswers(){
   let guesses = document.querySelectorAll(".options input");
   let correct = 0;
+  let amount = document.getElementById('amount').value;
   for (var i= 0; i < guesses.length; i++){
     if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
     }
   }
-  let score = (correct/document.getElementById('amount').value)*100;
+  let score = (correct/amount)*100;
   console.log(score);
   document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
   + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">
