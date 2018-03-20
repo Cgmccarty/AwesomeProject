@@ -25,7 +25,7 @@ function getData(){
   let type = document.getElementById('type').value;
   let amount = document.getElementById('amount').value;
   let category = document.getElementById('category').value;
-  if(difficulty !== "easy" && difficulty !== "medium" && dificulty !== "hard"){
+  if(difficulty !== "easy" && difficulty !== "medium" && difficulty !== "hard"){
     throw Error(`Bad Arguments: ${difficulty}`);
   }
   else if(type !== "multiple" && type !== "boolean"){
@@ -58,7 +58,7 @@ function submitAnswers(){
       correct++;
     }
   }
-  let score = (correct/10)*100;
+  let score = (correct/document.getElementById('amount').value)*100;
   console.log(score);
   document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
   + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">
