@@ -1,8 +1,6 @@
 
 document.getElementById('start').addEventListener('click', getData);
 
-dataFile = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
-
 function createQuestion(question){
   let answers = [
     {text: question.correct_answer, correct: true},
@@ -23,6 +21,20 @@ function createQuestion(question){
 }
 
 function getData(){
+  let difficulty = document.getElementById('difficulty').value;
+  let type = document.getElementById('type').value;
+  let amount = document.getElementById('amount').value;
+  let category = document.getElementById('category').value;
+  if(difficulty !== "easy" && difficulty !== "medium" && dificulty !== "hard"){
+    throw Error(`Bad Arguments: ${difficulty}`);
+  }
+  else if(type !== "multiple" && type !== "boolean"){
+    throw Error(`Bad Arguments: ${type}`);
+  }
+  else if(amount < 1 || amount > 50){
+    throw Error(`Bad Arguments: Outside the range`);
+  }
+  dataFile = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
   fetch(dataFile)
     .then(function(response){
       return(response.json());
