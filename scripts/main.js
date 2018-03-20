@@ -58,7 +58,6 @@ function submitAnswers(){
   if (element !== null){
     amount = element.value;
   }
-  }
   for (var i= 0; i < guesses.length; i++){
     if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
