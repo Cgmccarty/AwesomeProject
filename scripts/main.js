@@ -34,7 +34,7 @@ function getData(){
   else if(amount < 1 || amount > 50){
     throw Error(`Bad Arguments: Outside the range`);
   }
-  dataFile = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
+  let dataFile = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
   fetch(dataFile)
     .then(function(response){
       return(response.json());
@@ -53,7 +53,15 @@ function getData(){
 function submitAnswers(){
   let guesses = document.querySelectorAll(".options input");
   let correct = 0;
-  let amount = document.getElementById("amount").value;
+  var amount;
+  element = document.getElementById('amount');
+  if (element !== null){
+    amount = element.value;
+  }
+  else {
+    str = null;
+  }
+  }
   for (var i= 0; i < guesses.length; i++){
     if (guesses[i].className === "correct" && guesses[i].checked) {
       correct++;
