@@ -64,8 +64,7 @@ function submitAnswers(){
   let score = (correct/amounts)*100;
   console.log(score);
   document.getElementById('content').innerHTML = document.getElementById('content').innerHTML
-  + ` <br/> <p> Your score is ${score}%! <p> <button type="button" class="button" onclick="getData()">
-  Try Another!</button> </p> </p> <p> <button type ="button" class="button" onclick="restart()">Home</button> </p>`;
+  + ` <br/> <p> Your score is ${score}%! </p> <p> <button type ="button" class="button" onclick="restart()">Take Another!</button> </p>`;
 }
 
 function restart(){
